@@ -1,0 +1,81 @@
+针对Android移动应用开发复习：
+首先串联一下基本的内容
+1.Android项目的基本的文件结构
+
+1.1包括.java文件 extends AppCompatActivity或者Activity 创建了这个需要在AndroidManifest.xml进行配置通过<activity android: name=".MainActivity"/>进行设置（可以设置Activity的启动方式，有四种standard,singaltop,sigaltask,singalinstance,默认的是standard）
+
+1.2包括很多的res文件都是.xml格式
+其中有string、drawable、layout、refs、style、menu、color等
+像layout文件就是布局文件
+在这里设置文件的布局，类似web中CSS设置
+其中主要有四大布局Linearlayout、Framelayout、Relativelayout和。。（忘记了）。
+其中又主要用的控件有button，imagebutton,textview,editview
+都要设置android:layout_width和layout_height
+其中有两个模式match_parent和wrap..一个是和父元素一样大，另一个是包裹内容。
+然后还有布局oritation可以vier。。/he。。垂直/水平排布
+
+2.Activity的生命周期和交互
+2.1activity的生命周期，oncreate/onstart/onresume/onpause/onstop/ondetroy/onrestart/onfinish
+四个状态 销毁/停止/暂停/执行
+当一个activity被另一个覆盖的时候是 暂停了
+简单的覆盖可以通过Aliloa..生成一个消息框，用来做一些简单的数据交互
+比如设置选项（string[]）/是否按钮/
+
+2.2设置布局就是在oncreate里setviewcontent就可以了R.layout.布局文件名称
+但是这样布局就绑定了内容，后面用fragment负责管理，在主layout里面写一个framelayout（当然针对手机/平板还可以多个方便替换内容）就可以了，具体的框架写在fragment的layout里面
+启动其他的activity使用startactivity里面传入intent，intent(this,目标Activity.class)如果还想子activity结束后传回来点信息，可以用startforactivity
+然后再子里setresult设置传回来的信息
+
+2.3fragment是用inflate创建，获得个view v，v.findviewbyid区别和activity
+然后判断是否有了这个fragment
+通过getfragmentmanager gm .beginTransition.add/.replace  .commit()
+
+3.HTTP与后台下载
+URL构建
+url.getconnection
+
+connection.getresponse?=HTTp..OK
+
+byteArrayoutputstream out 
+inputstream in
+in=connection,get
+int bytes
+byte[] byte=new byte[1024];
+if bytes=in.read(byte)>0
+out.write(byte,0,bytes)
+
+return byte.bytesarray
+
+
+connection.close
+
+4.但是下载太费时间用后台AsayncTask<>
+4.1doinback
+4.2onpasc
+
+5.需要时下载，消息load
+onlooper
+
+6.数据库继承SQLiteopnehelper
+
+其他SqliteDatabase获得上面建立的数据库
+
+db.execsql
+db.execquery
+
+movetofirst
+
+.next
+
+7.服务intentService
+7.1handrequest
+每个一个handler
+7.2延时服务setalarm自定方法
+
+8.notification通知构建build设置标题、内容、图标、点击打开其他activity intent传递、系统管理
+
+9.boardreciver
+注册
+普通每一个都能收到
+设置私有 检查
+做出相应
