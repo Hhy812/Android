@@ -1,0 +1,25 @@
+选择题 （共20题）
+1.intent.ACTION_VIEW动作是什么意思？
+2.Activity的四大组件是什么？
+3.使用组件要先在哪里注册？哪个xml？
+
+判断题 （共15题）
+1.service可以实例？
+2.AndroidX是哪个版本引入的，是不是Android 9？
+
+
+简答题（共3题）：
+1.鸿蒙系统和Android有何不同
+2.Android怎么保证应用间的数据安全
+3.RecycleView是如何工作的？
+
+
+代码题（共1题）：
+这次期末考试最后一大题是数据库操作
+
+实现一个根据不同的数据库版本更新，建新的表即可 onUpgrade()
+
+switch(oldVersion){
+case 1:
+    db.execSQL("create ..")
+}
